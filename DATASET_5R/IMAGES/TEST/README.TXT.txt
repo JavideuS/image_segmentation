@@ -1,0 +1,1 @@
+Estas imagenes/etiquetas estaran disponibles para obtener las metricas de la competición el 31 de Mayo durante 1 hora
