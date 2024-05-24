@@ -34,7 +34,7 @@ def tr_loading(target_path, ind_path, batch_s, batch_e):
     tr_labels = torch.stack(tr_labels, dim=0)
 
     for i in inds[batch_s:batch_e]:
-        image = Image.open(ind_path + i)
+        image = Image.open(ind_path + "/" + i)
         transform = transforms.ToTensor()
         image_tensor = transform(image)
         image_tensor = image_tensor

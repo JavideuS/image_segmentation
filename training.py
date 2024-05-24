@@ -13,8 +13,10 @@ from training_data_loading import tr_loading
 from loss import ModifiedJaccardLoss
 
 def train(model, loss_fn, optimizer, num_epochs, batch_size,
-          target_path="C:/Users/fabia/Downloads/DATASET_5R/LABELS/MASK/TRAIN",
-          ind_path="C:/Users/fabia/Downloads/DATASET_5R/IMAGES/TRAIN"):
+          target_path="/home/javideus/programming/Cerveras_5R/image_segmentation/DATASET_5R/LABELS/MASK/TRAIN",
+          ind_path="/home/javideus/programming/Cerveras_5R/image_segmentation/DATASET_5R/IMAGES/TRAIN"):
+
+
     lossi = []
     losse = []
 

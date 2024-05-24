@@ -4,7 +4,7 @@ import torchvision.transforms as transforms
 from model_zoo import Enc , Dec , Upscaling
 
 
-image = Image.open("C:/Users/fabia/Downloads/DATASET_5R/IMAGES/TRAIN/20240321_151405_defaultImage.png")
+image = Image.open("/home/javideus/programming/Cerveras_5R/image_segmentation/DATASET_5R/IMAGES/TRAIN/20240321_150920_defaultImage.png")
 transform = transforms.ToTensor()
 image_tensor = transform(image)
 image_tensor = image_tensor.unsqueeze(0)
