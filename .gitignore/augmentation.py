@@ -35,9 +35,9 @@ class SegmentationTransform:
 
 # Example usage
 # Load an example image and its corresponding masks as tensors
-img = Image.open('DATASET_5R/LABELS/MASK/TRAIN/mask_5r_setup_6/5r_setup_6.png').convert('RGB')
-mask1 = Image.open('DATASET_5R/LABELS/MASK/TRAIN/mask_5r_setup_6/mask_5r_setup_6_0.png').convert('L')  # Assuming masks are single-channel
-mask2 = Image.open('DATASET_5R/LABELS/MASK/TRAIN/mask_5r_setup_6/mask_5r_setup_6_1.png').convert('L')  # Assuming masks are single-channel
+img = Image.open('../DATASET_5R/LABELS/MASK/TRAIN/mask_5r_setup_6/5r_setup_6.png').convert('RGB')
+mask1 = Image.open('../DATASET_5R/LABELS/MASK/TRAIN/mask_5r_setup_6/mask_5r_setup_6_0.png').convert('L')  # Assuming masks are single-channel
+mask2 = Image.open('../DATASET_5R/LABELS/MASK/TRAIN/mask_5r_setup_6/mask_5r_setup_6_1.png').convert('L')  # Assuming masks are single-channel
 
 
 img_tensor = transforms.ToTensor()(img)
