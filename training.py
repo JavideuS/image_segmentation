@@ -1,13 +1,13 @@
 import os
 import torch.optim as optim
 from model_zoo import ZeroNeurons
-from training_data_loading_3_0 import tr_loading
+from training_data_loading import tr_loading
 from loss import ModifiedJaccardLoss
 
 
 def train(model, loss_fn, optimizer, num_epochs, batch_size,
-          target_path="output_images",
-          ind_path="output_masks"):
+          target_path="output_masks",
+          ind_path="output_images"):
     lossi = []
     losse = []
 
@@ -38,10 +38,10 @@ def train(model, loss_fn, optimizer, num_epochs, batch_size,
 
     return lossi, losse
 
-model = ZeroNeurons()
-optimizer = optim.Adam(model.parameters(), lr=1.5)
-loss = ModifiedJaccardLoss()
-count = sum(p.numel() for p in model.parameters())
-print(count)
-
-li , le = train(model, loss, optimizer, num_epochs = 10 , batch_size = 5)
+# model = ZeroNeurons()
+# optimizer = optim.Adam(model.parameters(), lr=1.5)
+# loss = ModifiedJaccardLoss()
+# count = sum(p.numel() for p in model.parameters())
+# print(count)
+#
+# li , le = train(model, loss, optimizer, num_epochs = 10 , batch_size = 5)

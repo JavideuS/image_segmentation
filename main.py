@@ -1,11 +1,11 @@
 from training import *
 from loss import *
-import training_data_loading
 from model_zoo import *
 import torch
 
 
 def main():
+
     if torch.cuda.is_available():
         device = torch.device("cuda")
         print("GPU is available")
@@ -15,10 +15,9 @@ def main():
 
     model = ZeroNeurons()
     model.to(device)
-
-    optimizer = optim.Adam(model.parameters(), lr=0.11)
+    optimizer = optim.Adam(model.parameters(), lr=1.5)
     loss = ModifiedJaccardLoss()
-    li, le = train(model, loss, optimizer, num_epochs=50, batch_size=2)
+    li , le = train(model, loss, optimizer, num_epochs = 10 , batch_size = 5)
 
 
 if __name__ == '__main__':
