@@ -1,22 +1,13 @@
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import numpy
-from torchvision import transforms
-from PIL import Image
 import os
-import matplotlib.pyplot as plt
-import numpy as np
 import torch.optim as optim
 from model_zoo import ZeroNeurons
-from training_data_loading import tr_loading
+from training_data_loading_3_0 import tr_loading
 from loss import ModifiedJaccardLoss
 
+
 def train(model, loss_fn, optimizer, num_epochs, batch_size,
-          target_path="/home/javideus/programming/Cerveras_5R/image_segmentation/DATASET_5R/LABELS/MASK/TRAIN",
-          ind_path="/home/javideus/programming/Cerveras_5R/image_segmentation/DATASET_5R/IMAGES/TRAIN"):
-
-
+          target_path="output_images",
+          ind_path="output_masks"):
     lossi = []
     losse = []
 
@@ -38,10 +29,19 @@ def train(model, loss_fn, optimizer, num_epochs, batch_size,
             optimizer.step()  # Update the weights
 
             epoch_loss += loss.item()
-            epoch_loss /= 2
             lossi.append(loss.item())
-            losse.append(epoch_loss)
 
-            print(f'Epoch [{epoch + 1}/{num_epochs}], Batch [{b}] ----> Loss: {epoch_loss}')
+        print(f'Epoch [{epoch + 1}/{num_epochs}], Batch [{b}] ----> Loss: {epoch_loss / 30}')
+
+        losse.append(epoch_loss)
+        print()
 
     return lossi, losse
+
+model = ZeroNeurons()
+optimizer = optim.Adam(model.parameters(), lr=1.5)
+loss = ModifiedJaccardLoss()
+count = sum(p.numel() for p in model.parameters())
+print(count)
+
+li , le = train(model, loss, optimizer, num_epochs = 10 , batch_size = 5)

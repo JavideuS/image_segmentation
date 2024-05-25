@@ -48,19 +48,19 @@ def process_images_and_masks(image_folder, mask_folder, output_image_folder, out
         start_time = time.time()
 
         filename = os.path.basename(image_path)
-        image = Image.open(image_path).convert('RGB')
+        image = Image.open(image_path).convert('RGBA')
 
         if filename.startswith('5r'):
             adjusted_filename = "mask_" + filename
-            output_name = f"real_{r}.jpg"
+            output_name = f"real_{r}.png"
             r += 1
         elif filename.startswith('real'):
             adjusted_filename = filename
-            output_name = f"real_{r}.jpg"
+            output_name = f"real_{r}.png"
             r += 1
         else:
             adjusted_filename = filename.replace("_defaultImage", "")
-            output_name = f"simulated_{s}.jpg"
+            output_name = f"simulated_{s}.png"
             s += 1
 
         image_tensor = transforms.ToTensor()(image)
